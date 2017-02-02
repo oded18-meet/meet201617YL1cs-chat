@@ -1,5 +1,5 @@
 #2016-2017 PERSONAL PROJECTS: TurtleChat!
-#WRITE YOUR NAME HERE!
+#ODED BEERI!!!!!!!!!!!!!!!!!!!!!!!!
 
 #####################################################################################
 #                                   IMPORTS                                         #
@@ -9,13 +9,29 @@
 #Finally, from the turtle_chat_widgets module, import two classes: Button and TextInput
 #####################################################################################
 #####################################################################################
+'''
+IMPORTS
+'''
+import turtle
+from turtle_chat_client import Client
+from turtle_chat_widgets import Button , TextInput
 
 #####################################################################################
 #                                   TextBox                                         #
 #####################################################################################
+'''
+TextBox class
+'''
+class TextBox(TextInput):
+
+    def draw_box(self):
+        
+
+    def write_msg()
+
 #Make a class called TextBox, which will be a subclass of TextInput.
 #Because TextInput is an abstract class, you must implement its abstract
-#methods.  There are two:
+#methods.There are two:
 #
 #draw_box
 #write_msg
