@@ -25,15 +25,24 @@ TextBox class
 class TextBox(TextInput):
 
     def draw_box(self):
-        self.turtle.pos = self.pos
-        self.turtle.pendown()
-        self.turtle.goto(self.pos(x),self.height)
-        self.turtle.goto(self.width,self.height)
-        self.turtle.goto(self.width,self.pos(y))
-        self.turtle.goto(self.pos(x),self.pos(y))
+        my_turtle = turtle.clone()
+        my_turtle.hideturtle()
+        my_turtle.pos = self.pos
+        my_turtle.pendown()
+        my_turtle.goto(my_turtle.pos[0],self.height)
+        my_turtle.goto(self.width,self.height)
+        my_turtle.goto(self.width,my_turtle.pos[1])
+        my_turtle.goto(my_turtle.pos[0],my_turtle.pos[1])
+        my_turtle.penup()
         
-    def write_msg():
-
+    def write_msg(self):
+        self.writer.clear()
+        self.writer = turtle.clone()
+        self.writer.write(self.get_msg())
+        
+        
+        
+        
 #Make a class called TextBox, which will be a subclass of TextInput.
 #Because TextInput is an abstract class, you must implement its abstract
 #methods.There are two:
