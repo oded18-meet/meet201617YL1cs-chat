@@ -37,7 +37,7 @@ class TextBox(TextInput):
         
     def write_msg(self):
         self.writer.clear()
-        self.writer = turtle.clone()
+##        self.writer = turtle.clone()
         self.writer.write(self.get_msg())
         
         
@@ -86,6 +86,21 @@ class TextBox(TextInput):
 #####################################################################################
 #####################################################################################
 
+class SendButton(Button):
+
+    def __init__(self, view ):
+        
+        self.view = view
+        
+        super (SendButton ,self).__init__()
+        
+    def fun(self, x =None ,y=None):
+        
+        self.view.send_msg()
+        
+##        print('hello world')
+        
+    
 
 ##################################################################
 #                             View                               #
@@ -109,11 +124,15 @@ class View:
         '''
         ###
         #Store the username and partner_name into the instance.
+        self.username = username
+        self.partner_name = partner_name
         ###
 
         ###
         #Make a new Client object and store it in this instance of View
         #(i.e. self).  The name of the instance should be my_client
+
+        self.my_client = Client()
         ###
 
         ###
@@ -140,13 +159,16 @@ class View:
         #Create one turtle object for each message to display.
         #You can use the clear() and write() methods to erase
         #and write messages for each
+        
         ###
 
         ###
         #Create a TextBox instance and a SendButton instance and
         #Store them inside of this instance
         ###
-
+        self.TextBox = TextBox()
+        
+        self.SendButton = SendButton(self)
         ###
         #Call your setup_listeners() function, if you have one,
         #and any other remaining setup functions you have invented.
