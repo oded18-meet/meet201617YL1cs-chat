@@ -159,6 +159,8 @@ class View:
         #Create one turtle object for each message to display.
         #You can use the clear() and write() methods to erase
         #and write messages for each
+
+        self.lest_msg = turtle.clone()
         
         ###
 
@@ -175,6 +177,12 @@ class View:
         ###
 
     def send_msg(self):
+        self.my_client.send(self.get_msg())
+        self.msg_queue.append(self.get_msg())
+        self.TextBox.clear_msg()
+        self.display_msg()
+        
+        
         '''
         You should implement this method.  It should call the
         send() method of the Client object stored in this View
@@ -184,10 +192,10 @@ class View:
         It should call self.display_msg() to cause the message
         display to be updated.
         '''
-        pass
+        
 
     def get_msg(self):
-        return self.textbox.get_msg()
+        return self.TextBox.get_msg()
 
     
 
@@ -205,6 +213,7 @@ class View:
         pass
 
     def msg_received(self,msg):
+
         '''
         This method is called when a new message is received.
         It should update the log (queue) of messages, and cause
@@ -217,16 +226,20 @@ class View:
         show_this_msg=self.partner_name+' says:\r'+ msg
         #Add the message to the queue either using insert (to put at the beginning)
         #or append (to put at the end).
+        self.msg_queue.append(msg)
         #
         #Then, call the display_msg method to update the display
+        self.display_msg()
 
     def display_msg(self):
         '''
         This method should update the messages displayed in the screen.
         You can get the messages you want from self.msg_queue
         '''
-        pass
-
+        self.writer.clear()
+        self.lest_msg.write(self.msg_queue[-1])
+        
+        
     def get_client(self):
         return self.my_client
 ##############################################################
