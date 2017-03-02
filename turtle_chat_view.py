@@ -236,7 +236,8 @@ class View:
         This method should update the messages displayed in the screen.
         You can get the messages you want from self.msg_queue
         '''
-        self.writer.clear()
+     
+        self.lest_msg.clear()
         self.lest_msg.write(self.msg_queue[-1])
         
         
