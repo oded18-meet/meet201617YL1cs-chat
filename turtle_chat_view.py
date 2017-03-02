@@ -25,14 +25,17 @@ TextBox class
 class TextBox(TextInput):
 
     def draw_box(self):
+        self.w=-150
+        self.h=200
         my_turtle = turtle.clone()
         my_turtle.hideturtle()
         my_turtle.pos = self.pos
         my_turtle.pendown()
-        my_turtle.goto(my_turtle.pos[0],self.height)
-        my_turtle.goto(self.width,self.height)
-        my_turtle.goto(self.width,my_turtle.pos[1])
-        my_turtle.goto(my_turtle.pos[0],my_turtle.pos[1])
+        my_turtle.goto(self.w,0)
+        my_turtle.goto(self.w+300,0)
+        my_turtle.goto(self.w+300.,self.h)
+        my_turtle.goto(self.w,self.h)
+        my_turtle.goto(self.w,0)
         my_turtle.penup()
         
     def write_msg(self):
